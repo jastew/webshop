@@ -1,14 +1,14 @@
 $size: 10px
 $size__font--s:  0.75em
 $size__font:     1.00em
-$size__font--l:  1.50em
-$size__font--xl: 2.00em
+$size__font--l:  1.25em
+$size__font--xl: 1.75em
 $size__container--max: 600px
 
 $color__primary: #f00
-$color__primary--dark: darken($color__primary, 2)  
+$color__primary--d: darken($color__primary, 2)  
 $color__secondary: #00f
-$color__secondary--dark: #00f
+$color__secondary--d: darken($color__secondary, 10)
 
 %clearfix 
   &:after 
@@ -73,6 +73,7 @@ a
   text-decoration: none
   color: inherit
   
+  
   &:hover
     text-decoration: underline
   
@@ -104,7 +105,7 @@ a
  ***********************************/    
 /* Media Object */   
 .media 
-  overflow: hidden
+  //overflow: hidden
   
   &__image
     float: left
@@ -112,8 +113,8 @@ a
     margin-bottom: size()
     
   &__body
-    position: relative
     overflow: hidden
+    position: relative
     
     
     
@@ -138,12 +139,13 @@ a
     color: #fff
     
     &:hover
-      background-color: $color__primary--dark
+      background-color: $color__primary--d
   
     
       
 /* Product */       
 .product
+  overflow: hidden
   box-sizing: border-box
   padding: size(2)
   margin-bottom: size()
@@ -152,7 +154,8 @@ a
   
   &__name
     margin-bottom: size(0.5)
-    //color: $color__secondary
+    font-size: $size__font--l
+    color: $color__secondary--d
   
   &__image
     position: relative
@@ -206,6 +209,13 @@ a
       float: right
       font-size: $size__font
       border-radius: 0
+  
+  &__no-stock
+    float: right
+    width: 220px
+    font-size: $size__font
+    text-align: right
+    text-transform: uppercase
     
   &__price
     margin-bottom: size(0.5)
@@ -213,8 +223,8 @@ a
     color: red
     
     &__value
-      font-size: $size__font--l
-
+      font-size: $size__font--xl
+      
       &__old
         margin-right: size()
         text-decoration: line-through

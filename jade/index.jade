@@ -1,4 +1,4 @@
-mixin product(name, description, code, image, price, price_old)
+mixin product(name, description, code, image, price, price_old, stock)
   .media.product
     .media__image.product__image
       a(href="#"): img(src="#{image}", alt="thumbnail image")
@@ -12,13 +12,15 @@ mixin product(name, description, code, image, price, price_old)
       p.product__description  #{description}
       p.product__code Code: #{code}
       
-      .product__add
-        a.product__add__btn.btn.btn--primary(href="#") Add to cart
-        label.product__add__label
-          .product__add__label__value QTY
-          .product__add__amount
-            input(type="number" placeholder="1" min="1")
-
+      if stock > 0
+        .product__add
+          a.product__add__btn.btn.btn--primary(href="#") Add to cart
+          label.product__add__label
+            .product__add__label__value QTY
+            .product__add__amount
+              input(type="number" placeholder="1" min="1")
+      else 
+        p.product__no-stock Out of stock
 
 doctype html
 
@@ -33,11 +35,11 @@ html
     .container   
       +product('BRILLO 4" SOAP PADS 10PK', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi quibusdam, amet omnis.', 'ALL297220', 'http://tcs.webshop-live.morsolutions.ie/data/thumbs/4d/4d1dad00408e82ad144b5df0f779ed57fafcae35.jpg', "60.00")
 
-      +product('FAIRY ACTIVE BURST DISHWASH TABLETS (58)', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'ALLN06730', 'http://tcs.webshop-live.morsolutions.ie/data/thumbs/df/df7c459e4f4d93f156b7e3e58cba15ad8131f3c7.jpg', "24.59", "30.00")
+      +product('FAIRY ACTIVE BURST DISHWASH TABLETS (58)', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'ALLN06730', 'http://tcs.webshop-live.morsolutions.ie/data/thumbs/df/df7c459e4f4d93f156b7e3e58cba15ad8131f3c7.jpg', "24.59", "30.00", 2)
 
       +product('ENHANCE SPOT/STAIN REMOVER 750ML','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim facere sapiente voluptates odit! Corporis eius necessitatibus voluptates quasi sit eligendi consectetur, repellendus vitae deleniti natus molestiae fugit numquam voluptas, earum similique consequatur, laudantium, praesentium delectus asperiores!','ALL294201', 'http://tcs.webshop-live.morsolutions.ie/img/thumb/ed0f305f631ff89c52393f86e0f209f72b0d9c68/1427842800/1427887035a7ed2e0e2d57c5f153af66fe30cc6b57.jpg?ws=800&hs=800', '12.50', "15.00")
       
-      +product('FINISH POWERBALL TABS (110)', 'Lorem ipsum dolor sit amet, consectetur.', 'SM171071', 'http://tcs.webshop-live.morsolutions.ie/data/thumbs/96/96ace85b06823c812aed8af12ace8bd7a5a0b480.jpg', '9.99')
+      +product('FINISH POWERBALL TABS (110)', 'Lorem ipsum dolor sit amet, consectetur.', 'SM171071', 'http://tcs.webshop-live.morsolutions.ie/data/thumbs/96/96ace85b06823c812aed8af12ace8bd7a5a0b480.jpg', '9.99', 5)
       
-      +product('ASTONISH GREASE OFF 750ML', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia tempora iure ipsam dolore possimus!  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora?', 'SM161041', 'http://tcs.webshop-live.morsolutions.ie/data/thumbs/16/16f50dfa29c536b9845ffcb788886857a5c0f270.jpg', '14.49')
+      +product('ASTONISH GREASE OFF 750ML', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia tempora iure ipsam dolore possimus!  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora?', 'SM161041', 'http://tcs.webshop-live.morsolutions.ie/data/thumbs/16/16f50dfa29c536b9845ffcb788886857a5c0f270.jpg', '14.49', 3)
 
