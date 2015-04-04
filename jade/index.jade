@@ -13,7 +13,7 @@ mixin product(name, description, code, image, price, price_old, stock)
       p.product__code Code: #{code}
       
       if stock > 0
-        .product__add
+        form(action="#" method="GET").product__add
           a.product__add__btn.btn.btn--primary(href="#") Add to cart
           label.product__add__label
             .product__add__label__value QTY
