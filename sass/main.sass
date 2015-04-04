@@ -104,7 +104,7 @@ a
  ***********************************/    
 /* Media Object */   
 .media 
-  //overflow: hidden
+  overflow: hidden
   
   &__image
     float: left
@@ -112,6 +112,7 @@ a
     margin-bottom: size()
     
   &__body
+    position: relative
     overflow: hidden
     
     
@@ -151,7 +152,7 @@ a
   
   &__name
     margin-bottom: size(0.5)
-    color: $color__secondary
+    //color: $color__secondary
   
   &__image
     position: relative
@@ -213,11 +214,11 @@ a
     
     &__value
       font-size: $size__font--l
-      
+
       &__old
         margin-right: size()
         text-decoration: line-through
-        color: #333
+        color: #aaa
     
     &__vat
       font-size: $size__font
