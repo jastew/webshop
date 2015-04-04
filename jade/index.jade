@@ -14,11 +14,12 @@ mixin product(name, description, code, image, price, price_old, stock)
       
       if stock > 0
         form(action="#" method="GET").product__add
-          a.product__add__btn.btn.btn--primary(href="#") Add to cart
+          input(type="hidden" name="code" value="#{code}")
+          input.product__add__btn.btn.btn--primary(type="submit" value="Add to cart")
           label.product__add__label
             .product__add__label__value QTY
             .product__add__amount
-              input(type="number" placeholder="1" min="1")
+              input(type="number" name="qty" placeholder="1" min="1")
       else 
         p.product__no-stock Out of stock
 
