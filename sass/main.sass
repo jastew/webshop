@@ -184,11 +184,8 @@ a
   &__add
     float: right
     overflow: hidden
-    width: 100%
+    width: 220px
     border-radius: 4px
-    
-    @media (min-width: 400px)
-      width: 220px
     
     &__label
       display: block
@@ -227,6 +224,7 @@ a
     color: red
     
     &__value
+      margin-right: size()
       font-size: $size__font--xl
       
       &__old
@@ -235,6 +233,7 @@ a
         color: #aaa
     
     &__vat
+      display: none
       font-size: $size__font
     
   &__code 
